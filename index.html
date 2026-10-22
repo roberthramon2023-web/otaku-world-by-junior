@@ -1,122 +1,250 @@
 
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101010">
-  <meta name="description" content="Otaku World by Junior — wallpapers de anime e jogos.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b0e">
   <title>Otaku World by Junior</title>
   <style>
     :root {
-      --bg: #101010;
-      --panel: #1b1b1b;
-      --red: #e32636;
-      --text: #fff;
-      --muted: #aaa;
+      --bg: #0b0b0e;
+      --panel: #15151b;
+      --red: #ed2345;
+      --text: #f7f7fb;
+      --muted: #a6a6b3;
+      --border: #292932;
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
       font-family: Arial, Helvetica, sans-serif;
     }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+
     header {
-      padding: 24px 6%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      border-bottom: 1px solid #292929;
+      gap: 20px;
+      padding: 22px 6%;
+      border-bottom: 1px solid var(--border);
     }
-    .logo { font-size: 24px; font-weight: 900; }
-    .logo span { color: var(--red); }
-    nav { display: flex; gap: 16px; flex-wrap: wrap; }
-    a { color: inherit; text-decoration: none; }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span, .hero h1 span { color: var(--red); }
+
+    nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    nav a { color: #dddde5; font-size: 14px; }
     nav a:hover { color: var(--red); }
+
     .hero {
-      padding: 68px 6% 48px;
-      background: radial-gradient(ellipse at top right, #54121a, transparent 55%);
+      padding: 75px 6% 65px;
+      background:
+        radial-gradient(ellipse at 85% 25%, #541322 0, transparent 42%),
+        linear-gradient(120deg, #111116, #0b0b0e 75%);
     }
+
     .tag {
-      color: #ff6673;
-      text-transform: uppercase;
-      letter-spacing: 3px;
+      display: inline-block;
+      padding: 8px 12px;
+      color: #ff9aaa;
+      background: #32111b;
+      border: 1px solid #632033;
+      border-radius: 30px;
       font-size: 12px;
-      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
     }
-    h1 { font-size: clamp(36px, 6vw, 64px); margin: 14px 0; }
-    h1 span { color: var(--red); }
-    .hero p { max-width: 580px; color: #c6c6c6; line-height: 1.7; }
-    main { padding: 28px 6% 60px; }
+
+    .hero h1 {
+      margin: 22px 0 14px;
+      font-size: clamp(36px, 6vw, 68px);
+      line-height: 1.04;
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      max-width: 590px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    main { padding: 35px 6% 65px; }
+
     .search {
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
+      gap: 12px;
+      margin-bottom: 22px;
     }
+
     input, select {
+      min-width: 0;
+      padding: 14px;
+      color: white;
       background: var(--panel);
-      color: white;
-      border: 1px solid #383838;
-      border-radius: 8px;
-      padding: 13px;
-      font-size: 15px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      outline: none;
     }
-    input { flex: 1; min-width: 200px; }
+
+    input { flex: 1; }
+    input:focus, select:focus { border-color: var(--red); }
+
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 38px;
+    }
+
     button {
-      background: var(--red);
-      color: white;
-      border: 0;
-      border-radius: 8px;
-      padding: 11px 15px;
       cursor: pointer;
-      font-weight: bold;
+      color: #ededf3;
+      background: #1b1b23;
+      border: 1px solid #34343e;
+      border-radius: 8px;
+      padding: 10px 15px;
+      transition: .18s ease;
     }
-    button:hover { filter: brightness(1.15); }
-    .categories { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 32px; }
-    .categories button { background: #272727; border: 1px solid #393939; }
-    .categories button.active { background: var(--red); border-color: var(--red); }
-    .section-title { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-    h2 { font-size: 24px; }
+
+    button:hover { border-color: var(--red); }
+    button.active, button.primary {
+      background: var(--red);
+      border-color: var(--red);
+      color: white;
+    }
+
+    button:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    h2 { margin: 0; font-size: 25px; }
     #count { color: var(--muted); font-size: 13px; }
+
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
     }
+
     .card {
-      background: var(--panel);
-      border: 1px solid #2c2c2c;
-      border-radius: 12px;
       overflow: hidden;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: transform .2s, border-color .2s;
     }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #6c2637;
+    }
+
     .art {
-      min-height: 230px;
-      aspect-ratio: 4 / 5;
+      position: relative;
       display: flex;
-      align-items: end;
-      padding: 16px;
-      background: linear-gradient(145deg, #3d1117, #171717 55%, #721b28);
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 70% 25%, #672039, transparent 40%),
+        linear-gradient(135deg, #25202b, #101015 65%);
     }
-    .art.blue { background: linear-gradient(145deg, #122d46, #171717 55%, #286184); }
-    .art.purple { background: linear-gradient(145deg, #38204d, #171717 55%, #713c82); }
-    .art.gold { background: linear-gradient(145deg, #5a3a0b, #171717 55%, #9c6d19); }
-    .art strong { font-size: 23px; text-shadow: 0 2px 10px #000; }
-    .card-content { padding: 15px; }
-    .card-content p { color: var(--muted); font-size: 13px; }
-    .actions { display: flex; gap: 8px; }
-    .actions button { flex: 1; }
-    .actions .favorite { background: #303030; }
-    .empty { display: none; color: var(--muted); padding: 30px 0; }
-    footer { border-top: 1px solid #292929; padding: 25px 6%; color: var(--muted); font-size: 13px; }
-    @media (max-width: 600px) {
-      header { padding: 20px 5%; }
-      .hero { padding: 48px 5% 30px; }
-      main { padding: 24px 5% 45px; }
+
+    .art.purple {
+      background: radial-gradient(ellipse at 70% 20%, #633e8d, transparent 45%),
+                  linear-gradient(135deg, #21142e, #0e0c14);
+    }
+
+    .art.blue {
+      background: radial-gradient(ellipse at 70% 20%, #275f86, transparent 45%),
+                  linear-gradient(135deg, #111f30, #0b0d14);
+    }
+
+    .art.gold {
+      background: radial-gradient(ellipse at 70% 20%, #87652a, transparent 45%),
+                  linear-gradient(135deg, #332719, #0e0c0a);
+    }
+
+    .art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+
+    .art strong {
+      font-size: clamp(16px, 2.5vw, 26px);
+      letter-spacing: 2px;
+      text-align: center;
+      padding: 12px;
+      text-shadow: 0 3px 15px #000;
+    }
+
+    .card-content { padding: 17px; }
+    .card-content > strong { font-size: 16px; }
+
+    .card-content p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+      min-height: 19px;
+    }
+
+    .actions { display: flex; gap: 8px; margin-top: 15px; }
+    .actions button { flex: 1; padding: 10px 8px; font-size: 12px; }
+    .favorite { color: #ff9aaa; }
+
+    .empty {
+      display: none;
+      padding: 35px 10px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer {
+      padding: 28px 6%;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 850px) {
+      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 560px) {
+      header { align-items: flex-start; flex-direction: column; }
+      nav { gap: 15px; }
+      .hero { padding-top: 50px; }
+      .search { flex-direction: column; }
+      .gallery { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -126,20 +254,22 @@
     <nav>
       <a href="#galeria">Galeria</a>
       <a href="#categorias">Categorias</a>
-      <a href="#favoritos" id="favoritesLink">Favoritos ★</a>
+      <a href="#galeria" id="favoritesLink">Favoritos ★</a>
     </nav>
   </header>
 
   <section class="hero">
     <div class="tag">Seu universo otaku</div>
     <h1>Seu próximo<br><span>wallpaper favorito.</span></h1>
-    <p>Explore o universo dos animes e jogos. Encontre artes para personalizar seu celular e computador.</p>
+    <p>Explore o universo dos animes, jogos e artes originais. Encontre wallpapers para personalizar seu celular e computador.</p>
   </section>
 
   <main>
     <div class="search">
-      <input id="search" type="search" placeholder="Pesquisar anime, jogo ou personagem..." aria-label="Pesquisar wallpapers">
-      <select id="sort" aria-label="Ordenar">
+      <input id="search" type="search"
+        placeholder="Pesquisar anime, jogo ou personagem..."
+        aria-label="Pesquisar wallpapers">
+      <select id="sort" aria-label="Filtrar galeria">
         <option value="all">Todas as imagens</option>
         <option value="favorites">Meus favoritos</option>
       </select>
@@ -151,12 +281,14 @@
       <button data-category="Re:Zero">Re:Zero</button>
       <button data-category="Soul Eater">Soul Eater</button>
       <button data-category="Genshin Impact">Genshin Impact</button>
+      <button data-category="Otaku Originals">Otaku Originals</button>
     </div>
 
     <div class="section-title" id="galeria">
       <h2>Galeria de wallpapers</h2>
       <span id="count"></span>
     </div>
+
     <div class="gallery" id="gallery"></div>
     <p class="empty" id="empty">Nenhum resultado encontrado. Tente outra pesquisa.</p>
   </main>
@@ -164,11 +296,41 @@
   <footer>© 2026 Otaku World by Junior · Projeto independente de fãs.</footer>
 
   <script>
+    // Os arquivos serão adicionados à pasta "wallpaper" do GitHub.
+    // Até lá, os cartões mostram um espaço reservado, não um wallpaper real.
     const wallpapers = [
-      { title: "Espírito de batalha", anime: "Black Clover", color: "", symbol: "BLACK CLOVER" },
-      { title: "Aventura fantástica", anime: "Re:Zero", color: "purple", symbol: "RE:ZERO" },
-      { title: "Alma e coragem", anime: "Soul Eater", color: "blue", symbol: "SOUL EATER" },
-      { title: "Mundo de Teyvat", anime: "Genshin Impact", color: "gold", symbol: "GENSHIN IMPACT" }
+      {
+        id: "original-01",
+        title: "Grimório Carmesim",
+        anime: "Otaku Originals",
+        image: "wallpaper/original-01.jpg",
+        symbol: "ARTE ORIGINAL",
+        color: ""
+      },
+      {
+        id: "original-02",
+        title: "Mago da Lua Violeta",
+        anime: "Otaku Originals",
+        image: "wallpaper/original-02.jpg",
+        symbol: "ARTE ORIGINAL",
+        color: "purple"
+      },
+      {
+        id: "original-03",
+        title: "Espadachim Neon",
+        anime: "Otaku Originals",
+        image: "wallpaper/original-03.jpg",
+        symbol: "ARTE ORIGINAL",
+        color: "blue"
+      },
+      {
+        id: "original-04",
+        title: "Dragão Celestial",
+        anime: "Otaku Originals",
+        image: "wallpaper/original-04.jpg",
+        symbol: "ARTE ORIGINAL",
+        color: "gold"
+      }
     ];
 
     const gallery = document.getElementById("gallery");
@@ -176,42 +338,66 @@
     const sort = document.getElementById("sort");
     const count = document.getElementById("count");
     const empty = document.getElementById("empty");
+
     let category = "Todos";
-    let favorites = JSON.parse(localStorage.getItem("otakuFavorites") || "[]");
+    let showFavorites = false;
+
+    function loadFavorites() {
+      try {
+        return JSON.parse(localStorage.getItem("otakuFavorites") || "[]");
+      } catch {
+        return [];
+      }
+    }
+
+    let favorites = loadFavorites();
 
     function render() {
       const query = search.value.toLowerCase().trim();
-      const filtered = wallpapers.filter((w, i) => {
-        const matchesQuery = (w.title + " " + w.anime + " " + w.symbol).toLowerCase().includes(query);
+
+      const filtered = wallpapers.filter(w => {
+        const text = `${w.title} ${w.anime} ${w.symbol}`.toLowerCase();
+        const matchesQuery = text.includes(query);
         const matchesCategory = category === "Todos" || w.anime === category;
-        const matchesFavorite = sort.value !== "favorites" || favorites.includes(i);
+        const matchesFavorite = sort.value !== "favorites" || favorites.includes(w.id);
         return matchesQuery && matchesCategory && matchesFavorite;
       });
 
       gallery.innerHTML = filtered.map(w => {
-        const i = wallpapers.indexOf(w);
-        const isFav = favorites.includes(i);
-        return `<article class="card">
-          <div class="art ${w.color}"><strong>${w.symbol}</strong></div>
-          <div class="card-content">
-            <strong>${w.title}</strong>
-            <p>${w.anime} · Cartão ilustrativo</p>
-            <div class="actions">
-              <button class="favorite" data-fav="${i}">${isFav ? "★ Favorito" : "☆ Favoritar"}</button>
-              <button data-download="${i}">Download</button>
+        const isFav = favorites.includes(w.id);
+
+        return `
+          <article class="card">
+            <div class="art ${w.color}">
+              <strong>${w.symbol}</strong>
+              <img src="${w.image}" alt="${w.title}"
+                loading="lazy"
+                onload="this.previousElementSibling.style.display='none'"
+                onerror="this.remove()">
             </div>
-          </div>
-        </article>`;
+            <div class="card-content">
+              <strong>${w.title}</strong>
+              <p>${w.anime} · 16:9</p>
+              <div class="actions">
+                <button class="favorite" data-fav="${w.id}">
+                  ${isFav ? "★ Favorito" : "☆ Favoritar"}
+                </button>
+                <button class="primary" data-download="${w.id}">Download</button>
+              </div>
+            </div>
+          </article>`;
       }).join("");
 
-      count.textContent = filtered.length + " itens";
+      count.textContent = `${filtered.length} itens`;
       empty.style.display = filtered.length ? "none" : "block";
     }
 
     document.querySelectorAll("[data-category]").forEach(button => {
       button.addEventListener("click", () => {
         category = button.dataset.category;
-        document.querySelectorAll("[data-category]").forEach(b => b.classList.toggle("active", b === button));
+        document.querySelectorAll("[data-category]").forEach(b => {
+          b.classList.toggle("active", b === button);
+        });
         render();
       });
     });
@@ -219,23 +405,50 @@
     gallery.addEventListener("click", event => {
       const favButton = event.target.closest("[data-fav]");
       const downloadButton = event.target.closest("[data-download]");
+
       if (favButton) {
-        const i = Number(favButton.dataset.fav);
-        favorites = favorites.includes(i) ? favorites.filter(n => n !== i) : [...favorites, i];
+        const id = favButton.dataset.fav;
+        favorites = favorites.includes(id)
+          ? favorites.filter(item => item !== id)
+          : [...favorites, id];
+
         localStorage.setItem("otakuFavorites", JSON.stringify(favorites));
         render();
       }
+
       if (downloadButton) {
-        alert("Esta é uma demonstração. Ainda precisamos adicionar arquivos de wallpaper autorizados para habilitar os downloads reais.");
+        const wallpaper = wallpapers.find(w => w.id === downloadButton.dataset.download);
+        if (!wallpaper) return;
+
+        fetch(wallpaper.image)
+          .then(response => {
+            if (!response.ok) throw new Error("Arquivo não encontrado");
+            return response.blob();
+          })
+          .then(blob => {
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = wallpaper.image.split("/").pop();
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            URL.revokeObjectURL(url);
+          })
+          .catch(() => {
+            alert("Este wallpaper ainda não está disponível. Primeiro precisamos enviar o arquivo para a pasta wallpaper no GitHub.");
+          });
       }
     });
 
     search.addEventListener("input", render);
     sort.addEventListener("change", render);
+
     document.getElementById("favoritesLink").addEventListener("click", () => {
       sort.value = "favorites";
       render();
     });
+
     render();
   </script>
 </body>
