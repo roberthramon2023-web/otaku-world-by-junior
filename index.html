@@ -39,11 +39,20 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .logo {
-      font-size: 23px;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
+   
+.logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo img {
+  display: block;
+  width: min(100%, 300px);
+  max-height: 110px;
+  height: auto;
+  object-fit: contain;
+}
 
     .logo span, .hero h1 span { color: var(--red); }
 
