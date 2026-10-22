@@ -40,6 +40,7 @@
     }
 
    
+
 .logo {
   display: inline-flex;
   align-items: center;
@@ -54,9 +55,12 @@
   object-fit: contain;
 }
 
-    .logo span, .hero h1 span { color: var(--red); }
+.hero h1 span { color: var(--red); }
 
-    nav { display: flex; gap: 22px; flex-wrap: wrap; }
+nav { display: flex; gap: 22px; flex-wrap: wrap; }
+nav a { color: #dddde5; font-size: 14px; }
+nav a:hover { color: var(--red); }
+
     nav a { color: #dddde5; font-size: 14px; }
     nav a:hover { color: var(--red); }
 
@@ -258,14 +262,23 @@
   </style>
 </head>
 <body>
-  <header>
-    <a class="logo" href="#">OTAKU <span>WORLD</span></a>
-    <nav>
-      <a href="#galeria">Galeria</a>
-      <a href="#categorias">Categorias</a>
-      <a href="#galeria" id="favoritesLink">Favoritos ★</a>
-    </nav>
-  </header>
+ 
+
+<header>
+  <a class="logo" href="#" aria-label="Otaku World by Junior">
+    <img
+      src="imagens/Logo%20Otaku%20World%20com%20Garota%20Anime.png"
+      alt="Otaku World by Junior"
+    >
+  </a>
+
+  <nav>
+    <a href="#galeria">Galeria</a>
+    <a href="#categorias">Categorias</a>
+    <a href="#galeria" id="favoritesLink">Favoritos ★</a>
+  </nav>
+</header>
+
 
   <section class="hero">
     <div class="tag">Seu universo otaku</div>
